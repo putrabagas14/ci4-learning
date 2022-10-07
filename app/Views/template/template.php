@@ -8,12 +8,12 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= base_url('DarkAbstackAdmin/dist/assets/images/favicon.ico') ?>">
+        <link rel="shortcut icon" href="<?= base_url('DarkAbstackAdmin/assets/images/favicon.ico') ?>">
 
         <!-- App css -->
-        <link href="<?= base_url('DarkAbstackAdmin/dist/assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?= base_url('DarkAbstackAdmin/dist/assets/css/icons.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?= base_url('DarkAbstackAdmin/dist/assets/css/app.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('DarkAbstackAdmin/assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('DarkAbstackAdmin/assets/css/icons.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('DarkAbstackAdmin/assets/css/app.min.css') ?>" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -29,27 +29,27 @@
 
                     <li class="dropdown d-none d-lg-block">
                         <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/flags/us.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">English <i class="mdi mdi-chevron-down"></i> </span>
+                            <img src="<?= base_url('DarkAbstackAdmin/assets/images/flags/us.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">English <i class="mdi mdi-chevron-down"></i> </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/flags/germany.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
+                                <img src="<?= base_url('DarkAbstackAdmin/assets/images/flags/germany.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/flags/italy.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
+                                <img src="<?= base_url('DarkAbstackAdmin/assets/images/flags/italy.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/flags/spain.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
+                                <img src="<?= base_url('DarkAbstackAdmin/assets/images/flags/spain.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/flags/russia.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
+                                <img src="<?= base_url('DarkAbstackAdmin/assets/images/flags/russia.jpg') ?>" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
                             </a>
 
                         </div>
@@ -125,7 +125,7 @@
 
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-1.jpg') ?>" alt="user-image" class="rounded-circle">
+                            <img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-1.jpg') ?>" alt="user-image" class="rounded-circle">
                             <span class="ml-1">Samuel <i class="mdi mdi-chevron-down"></i> </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -176,12 +176,12 @@
                 <div class="logo-box">
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/logo-light.png') ?>" alt="" height="16">
+                            <img src="<?= base_url('DarkAbstackAdmin/assets/images/logo-light.png') ?>" alt="" height="16">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">U</span> -->
-                            <img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/logo-sm.png') ?>" alt="" height="28">
+                            <img src="<?= base_url('DarkAbstackAdmin/assets/images/logo-sm.png') ?>" alt="" height="28">
                         </span>
                     </a>
                 </div>
@@ -510,33 +510,33 @@
                 <div class="p-3">
                     <div class="inbox-widget">
                         <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-1.jpg') ?>" class="rounded-circle" alt=""></div>
+                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-1.jpg') ?>" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);">Chadengle</a></p>
                             <p class="inbox-item-text">Hey! there I'm available...</p>
                             <p class="inbox-item-date">13:40 PM</p>
                         </div>
                         <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-2.jpg') ?>" class="rounded-circle" alt=""></div>
+                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-2.jpg') ?>" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);">Tomaslau</a></p>
                             <p class="inbox-item-text">I've finished it! See you so...</p>
                             <p class="inbox-item-date">13:34 PM</p>
                         </div>
                         <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-3.jpg') ?>" class="rounded-circle" alt=""></div>
+                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-3.jpg') ?>" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);">Stillnotdavid</a></p>
                             <p class="inbox-item-text">This theme is awesome!</p>
                             <p class="inbox-item-date">13:17 PM</p>
                         </div>
 
                         <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-4.jpg') ?>" class="rounded-circle" alt=""></div>
+                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-4.jpg') ?>" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);">Kurafire</a></p>
                             <p class="inbox-item-text">Nice to meet you</p>
                             <p class="inbox-item-date">12:20 PM</p>
 
                         </div>
                         <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/dist/assets/images/users/avatar-5.jpg') ?>" class="rounded-circle" alt=""></div>
+                            <div class="inbox-item-img"><img src="<?= base_url('DarkAbstackAdmin/assets/images/users/avatar-5.jpg') ?>" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);">Shahedk</a></p>
                             <p class="inbox-item-text">Hey! there I'm available...</p>
                             <p class="inbox-item-date">10:15 AM</p>
@@ -553,16 +553,16 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        <script src="<?= base_url('DarkAbstackAdmin/dist/assets/js/vendor.min.js') ?>"></script>
+        <script src="<?= base_url('DarkAbstackAdmin/assets/js/vendor.min.js') ?>"></script>
 
         <!-- Chart JS -->
-        <script src="<?= base_url('DarkAbstackAdmin/dist/assets/libs/chart-js/Chart.bundle.min.js') ?>"></script>
+        <script src="<?= base_url('DarkAbstackAdmin/assets/libs/chart-js/Chart.bundle.min.js') ?>"></script>
 
           <!-- Init js -->
-        <script src="<?= base_url('DarkAbstackAdmin/dist/assets/js/pages/dashboard.init.js') ?>"></script>
+        <script src="<?= base_url('DarkAbstackAdmin/assets/js/pages/dashboard.init.js') ?>"></script>
 
         <!-- App js -->
-        <script src="<?= base_url('DarkAbstackAdmin/dist/assets/js/app.min.js') ?>"></script>
+        <script src="<?= base_url('DarkAbstackAdmin/assets/js/app.min.js') ?>"></script>
         
     </body>
 </html>
