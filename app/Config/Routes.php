@@ -37,6 +37,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+// mahasiswa
+$routes->get('/mahasiswa', 'Mahasiswa::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
