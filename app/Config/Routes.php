@@ -39,6 +39,8 @@ $routes->get('/', 'Home::index');
 
 // mahasiswa
 $routes->get('/mahasiswa', 'Mahasiswa::index');
+$routes->get('/mahasiswa/add', 'Mahasiswa::add');
+$routes->post('/mahasiswa/save', 'Mahasiswa::save');
 
 /*
  * --------------------------------------------------------------------

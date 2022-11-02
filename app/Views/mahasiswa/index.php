@@ -20,8 +20,6 @@
     </div>
     <!-- end page title -->
 
-    <!-- <?php var_dump($data); ?> -->
-
     <div class="row">
         <div class="col-lg-12">
 
@@ -50,6 +48,7 @@
                                 <th>address</th>
                                 <th>NIS</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,13 +56,17 @@
                             <?php foreach($data as $item) :?>
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
-                                <td><?= $item["nama"] ?></td>
-                                <td><?= $item["gambar"] ?></td>
-                                <td><?= $item["email"] ?></td>
-                                <td><?= $item["jurusan"] ?></td>
-                                <td><?= $item["alamat"] ?></td>
-                                <td><?= $item["nis"] ?></td>
-                                <td><?= $item["created_at"] ?></td>
+                                <td><?= $item["nama"]; ?></td>
+                                <td><img src="/gambar/makima.jpg" height="100px" width="100px" alt=""></td>
+                                <td><?= $item["email"]; ?></td>
+                                <td><?= $item["jurusan"]; ?></td>
+                                <td><?= $item["alamat"]; ?></td>
+                                <td><?= $item["nis"]; ?></td>
+                                <td><?= $item["created_at"]; ?></td>
+                                <td>
+                                    <a href="" class="btn btn-info">Edit</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

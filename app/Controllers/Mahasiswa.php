@@ -22,6 +22,16 @@ class Mahasiswa extends BaseController {
         $mahasiswa = new MahasiswaModel();
         $dataMahasiswa = $mahasiswa->findAll();
 
+        if $this->
+
         return view('mahasiswa/index', ["data" => $dataMahasiswa]);
+    }
+
+    public function add() {
+        return view('mahasiswa/add');
+    }
+
+    public function save() {
+        dd($this->request->getVar());
     }
 }
