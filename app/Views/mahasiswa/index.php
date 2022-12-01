@@ -53,11 +53,17 @@
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
+                            <?php $gambar = ""; ?>
                             <?php foreach($data as $item) :?>
+                            <?php if($item["gambar"] == "" || $item["gambar"] == null) {
+                                $gambar = "/gambar/makima.jpg";
+                            } else {
+                                $gambar = $item["gambar"];
+                            } ?>
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
                                 <td><?= $item["nama"]; ?></td>
-                                <td><img src="/gambar/makima.jpg" height="100px" width="100px" alt=""></td>
+                                <td><img src="<?= $gambar ?>" height="100px" width="100px" alt="gambar tidak ditemukan"></td>
                                 <td><?= $item["email"]; ?></td>
                                 <td><?= $item["jurusan"]; ?></td>
                                 <td><?= $item["alamat"]; ?></td>

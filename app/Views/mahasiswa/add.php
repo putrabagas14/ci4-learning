@@ -26,7 +26,7 @@
                     <div class="form-group row">
                         <label for="inputGambar" class="col-3 col-form-label">Gambar</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="inputGambar" placeholder="Gambar" name="gambar">
+                            <input type="file" class="form-control" id="inputGambar" placeholder="Gambar" name="gambar">
                         </div>
                     </div>
                     <div class="form-group row">

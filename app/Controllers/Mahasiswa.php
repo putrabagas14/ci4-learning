@@ -22,8 +22,6 @@ class Mahasiswa extends BaseController {
         $mahasiswa = new MahasiswaModel();
         $dataMahasiswa = $mahasiswa->findAll();
 
-        if $this->
-
         return view('mahasiswa/index', ["data" => $dataMahasiswa]);
     }
 
@@ -32,6 +30,6 @@ class Mahasiswa extends BaseController {
     }
 
     public function save() {
-        dd($this->request->getVar());
+        dd($this->request->getVar("gambar"));
     }
 }
