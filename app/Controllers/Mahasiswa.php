@@ -26,10 +26,61 @@ class Mahasiswa extends BaseController {
     }
 
     public function add() {
-        return view('mahasiswa/add');
+        session();
+
+        $data = [
+            "tes" => "tes",
+            "validation" => \Config\Services::validation()
+        ];
+
+        return view('mahasiswa/add', $data);
     }
 
     public function save() {
-        dd($this->request->getVar("gambar"));
+        if (!$this->validate([
+            "nama" => [
+                "rules" => "required",
+                "errors" => [
+                    "required" => "Nama harus diisi",
+                ]
+                ],
+            "gambar" => [
+                    "rules" => "required",
+                    "errors" => [
+                        "required" => "Gambar harus diisi"
+                    ]
+                ],
+            "email" => [
+                    "rules" => "required|valid_email",
+                    "errors" => [
+                        "required" => "Email harus diisi",
+                        "valid_email" => "Gunakan format email yang benar"
+                    ]
+                ],
+                "alamat" => [
+                    "rules" => "required",
+                    "errors" => [
+                        "required" => "Alamat harus diisi",
+                    ]
+                ],
+                "jurusan" => [
+                    "rules" => "required",
+                    "errors" => [
+                        "required" => "Jurusan harus diisi",
+                    ]
+                ],
+                "nis" => [
+                    "rules" => "required",
+                    "errors" => [
+                        "required" => "Nis harus diisi",
+                    ]
+                ],
+        ])) {
+            // $validation = \Config\Services::validation();
+            return redirect()->to('mahasiswa/add')->withInput();
+        } else {
+            session()->setFlashdata('berhasil', 'berhasillllll');
+            return redirect('mahasiswa/add');
+        }
     }
 }
