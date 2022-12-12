@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\MahasiswaModel;
+use CodeIgniter\I18n\Time;
 
 class Mahasiswa extends BaseController {
     public function index() {
@@ -21,6 +22,7 @@ class Mahasiswa extends BaseController {
 
         $mahasiswa = new MahasiswaModel();
         $dataMahasiswa = $mahasiswa->findAll();
+        // $dataMahasiswa = $mahasiswa->paginate(2);
 
         return view('mahasiswa/index', ["data" => $dataMahasiswa]);
     }
@@ -79,8 +81,21 @@ class Mahasiswa extends BaseController {
             // $validation = \Config\Services::validation();
             return redirect()->to('mahasiswa/add')->withInput();
         } else {
-            session()->setFlashdata('berhasil', 'berhasillllll');
-            return redirect('mahasiswa/add');
+            // session()->setFlashdata('berhasil', 'berhasillllll');
+
+            $mahasiswa = new MahasiswaModel();
+            $mahasiswa->insert([
+            "nama" => $this->request->getVar('nama'),
+            "gambar" => $this->request->getVar('gambar'),
+            "email" => $this->request->getVar('email'),
+            "alamat" => $this->request->getVar('alamat'),
+            "jurusan" => $this->request->getVar('jurusan'),
+            "nis" => $this->request->getVar('nis'),
+            "created_at" => Time::now()
+            ]); 
+
+            session()->setFlashdata('success_create', 'Berhasil Menambah Data');
+            return redirect()->to("mahasiswa");
         }
     }
 }

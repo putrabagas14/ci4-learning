@@ -25,6 +25,15 @@
 
             <div class="card-box">
                 <h4 class="header-title">Striped rows</h4>
+                <?php if (!empty(session()->getFlashdata('success_create'))) : ?>
+                <div class="alert alert-success bg-success text-white border-0 alert-dismissible fade show"
+                    role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <?= session()->getFlashdata('success_create'); ?>
+                </div>
+                <?php endif; ?>
                 <p class="sub-header">
                     Use <code>.table-striped</code> to add zebra-striping to any table row
                     within the <code>&lt;tbody&gt;</code>.
@@ -63,7 +72,8 @@
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
                                 <td><?= $item["nama"]; ?></td>
-                                <td><img src="<?= $gambar ?>" height="100px" width="100px" alt="gambar tidak ditemukan"></td>
+                                <td><img src="<?= $gambar ?>" height="100px" width="100px" alt="gambar tidak ditemukan">
+                                </td>
                                 <td><?= $item["email"]; ?></td>
                                 <td><?= $item["jurusan"]; ?></td>
                                 <td><?= $item["alamat"]; ?></td>

@@ -15,11 +15,11 @@
             <div class="card-box">
                 <h4>Form Input</h4>
 
-                <?php if (!empty(session()->getFlashdata('berhasil'))) : ?>
+                <!-- <?php if (!empty(session()->getFlashdata('berhasil'))) : ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <?= session()->getFlashdata('berhasil'); ?>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
                 <form class="form-horizontal" role="form" action="/mahasiswa/save" method="POST">
                     <?= csrf_field(); ?>
