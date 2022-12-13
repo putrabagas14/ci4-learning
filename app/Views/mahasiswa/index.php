@@ -25,13 +25,22 @@
 
             <div class="card-box">
                 <h4 class="header-title">Striped rows</h4>
-                <?php if (!empty(session()->getFlashdata('success_create'))) : ?>
+                <?php if (!empty(session()->getFlashdata('berhasil'))) : ?>
                 <div class="alert alert-success bg-success text-white border-0 alert-dismissible fade show"
                     role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <?= session()->getFlashdata('success_create'); ?>
+                    <?= session()->getFlashdata('berhasil'); ?>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty(session()->getFlashdata('gagal'))) : ?>
+                    <div class="alert alert-danger bg-danger text-white border-0 alert-dismissible fade show"
+                    role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <?= session()->getFlashdata('gagal'); ?>
                 </div>
                 <?php endif; ?>
                 <p class="sub-header">
@@ -79,9 +88,10 @@
                                 <td><?= $item["alamat"]; ?></td>
                                 <td><?= $item["nis"]; ?></td>
                                 <td><?= $item["created_at"]; ?></td>
+                                <!-- if you use site_url() in tag <a></a>, you should change value $indexPage from 'index.php' to '' in app/Config/App.php -->
                                 <td>
-                                    <a href="" class="btn btn-info">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="<?= site_url('/mahasiswa/edit/'.$item['id']) ?>" class="btn btn-info">Edit</a>
+                                    <a href="<?= site_url('/mahasiswa/delete/'.$item['id']) ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

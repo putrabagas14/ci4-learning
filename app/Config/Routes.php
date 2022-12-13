@@ -41,6 +41,11 @@ $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index');
 $routes->get('/mahasiswa/add', 'Mahasiswa::add');
 $routes->post('/mahasiswa/save', 'Mahasiswa::save');
+$routes->get('/mahasiswa/edit/(:num)', 'Mahasiswa::edit/$1');
+$routes->post('/mahasiswa/update/(:num)', 'Mahasiswa::update/$1');
+// to passing id in route you should use (:num), could not use (:id) or other
+// and you should add /$1 or 2 or next number, according to the order of parameters / segment
+$routes->get('/mahasiswa/delete/(:num)', 'Mahasiswa::delete/$1');
 
 /*
  * --------------------------------------------------------------------
