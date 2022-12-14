@@ -20,11 +20,18 @@ class Mahasiswa extends BaseController {
         //     ]
         // ];
 
-        $mahasiswa = new MahasiswaModel();
-        $dataMahasiswa = $mahasiswa->findAll();
-        // $dataMahasiswa = $mahasiswa->paginate(2);
+        $current_page = $this->request->getVar('page_mahasiswa') ? $this->request->getVar('page_mahasiswa') : 1 ;
 
-        return view('mahasiswa/index', ["data" => $dataMahasiswa]);
+        $mahasiswa = new MahasiswaModel();
+        // parameter 'mahasiswa' adalah nama table
+
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword != "" || $keyword != null) {
+            $mahasiswa->like('nama', $keyword);
+        }
+        $data_mahasiswa = $mahasiswa->paginate(2, 'mahasiswa');
+
+        return view('mahasiswa/index', ["data" => $data_mahasiswa, "pager" => $mahasiswa->pager, 'current_page' => $current_page]);
     }
 
     public function add() {
