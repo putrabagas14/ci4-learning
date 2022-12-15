@@ -21,7 +21,7 @@
                     </div>
                 <?php endif; ?> -->
 
-                <form class="form-horizontal" role="form" action="/mahasiswa/save" method="POST">
+                <form class="form-horizontal" role="form" action="/mahasiswa/save" method="POST" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="form-group row">
                         <label for="inputNama" class="col-3 col-form-label">Nama</label>

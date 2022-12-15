@@ -46,6 +46,7 @@ class Mahasiswa extends BaseController {
     }
 
     public function save() {
+
         if (!$this->validate([
             "nama" => [
                 "rules" => "required",
@@ -54,9 +55,11 @@ class Mahasiswa extends BaseController {
                 ]
                 ],
             "gambar" => [
-                    "rules" => "required",
+                    "rules" => "uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]|max_size[gambar,2048]",
                     "errors" => [
-                        "required" => "Gambar harus diisi"
+                        "uploaded" => "Gambar harus diisi",
+                        "mime_in" => "Ekstensi file harus jpg, jpeg, gif, png",
+                        "max_size" => "Ukuran file maksimal 2 mb"
                     ]
                 ],
             "email" => [
@@ -90,16 +93,23 @@ class Mahasiswa extends BaseController {
         } else {
             // session()->setFlashdata('berhasil', 'berhasillllll');
 
+            $file_gambar = $this->request->getFile('gambar');
+            $nama_gambar = $file_gambar->getName();
+            // $nama_gambar = $file_gambar->getRandomName();
+
             $mahasiswa = new MahasiswaModel();
             $mahasiswa->insert([
             "nama" => $this->request->getVar('nama'),
-            "gambar" => $this->request->getVar('gambar'),
+            "gambar" => $nama_gambar,
             "email" => $this->request->getVar('email'),
             "alamat" => $this->request->getVar('alamat'),
             "jurusan" => $this->request->getVar('jurusan'),
             "nis" => $this->request->getVar('nis'),
             "created_at" => Time::now()
-            ]); 
+            ]);
+
+            $file_gambar->move("gambar/", $nama_gambar);
+            // move() defaultnya didalam folder public
 
             session()->setFlashdata('berhasil', 'Berhasil Menambah Data');
             return redirect()->to("mahasiswa");
@@ -130,10 +140,12 @@ class Mahasiswa extends BaseController {
                     "required" => "Nama harus diisi",
                 ]
                 ],
-            "gambar" => [
-                    "rules" => "required",
+                "gambar" => [
+                    "rules" => "uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]|max_size[gambar,2048]",
                     "errors" => [
-                        "required" => "Gambar harus diisi"
+                        "uploaded" => "Gambar harus diisi",
+                        "mime_in" => "Ekstensi file harus jpg, jpeg, gif, png",
+                        "max_size" => "Ukuran file maksimal 2 mb"
                     ]
                 ],
             "email" => [
@@ -164,16 +176,28 @@ class Mahasiswa extends BaseController {
         ])) {
             return redirect()->to('mahasiswa/edit/'.$id)->withInput();
         } else {
+            $file_gambar = $this->request->getFile('gambar');
+            $nama_gambar = $file_gambar->getName();
+
+            $mahasiswa = new MahasiswaModel();
+            $data_lama = $mahasiswa->find($id);
+
             $data = [
                 "nama" => $this->request->getVar('nama'),
-                "gambar" => $this->request->getVar('gambar'),
+                "gambar" => $nama_gambar,
                 "email" => $this->request->getVar('email'),
                 "alamat" => $this->request->getVar('alamat'),
                 "jurusan" => $this->request->getVar('jurusan'),
                 "nis" => $this->request->getVar('nis')
             ];
-            $updateData = new MahasiswaModel();
-            $updateData->update($id, $data);
+
+            $mahasiswa->update($id, $data);
+
+            if ($file_gambar->move("gambar/", $nama_gambar)) {
+                if (file_exists(FCPATH."gambar/".$data_lama["gambar"])) {
+                    unlink(FCPATH."gambar/".$data_lama['gambar']);
+                }
+            }
 
             session()->setFlashdata('berhasil', "Berhasil mengubah data");
 
@@ -184,7 +208,13 @@ class Mahasiswa extends BaseController {
     public function delete($id) {
 
         $result = new MahasiswaModel();
+        $gambar = $result->find($id);
+        // dd(FCPATH."gambar/".$gambar['gambar']);
         if ($result->delete($id)) {
+            if (file_exists(FCPATH."gambar/".$gambar['gambar'])) {
+                unlink(FCPATH."gambar/".$gambar['gambar']);
+                // FCPATH berisi path yang defaultnya didalam folder public
+            }
             session()->setFlashdata('berhasil', 'Berhasil menghapus data');
         } else {
             session()->setFlashdata('gagal', 'Gagal menghapus data');

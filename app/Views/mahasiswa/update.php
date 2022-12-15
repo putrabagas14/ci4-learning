@@ -15,7 +15,7 @@
             <div class="card-box">
                 <h4>Form Input</h4>
 
-                <form class="form-horizontal" role="form" action="<?= site_url('mahasiswa/update/'.$data['id']) ?>" method="POST">
+                <form class="form-horizontal" role="form" action="<?= site_url('mahasiswa/update/'.$data['id']) ?>" method="POST" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="form-group row">
                         <label for="inputNama" class="col-3 col-form-label">Nama</label>
@@ -29,7 +29,7 @@
                     <div class="form-group row">
                         <label for="inputGambar" class="col-3 col-form-label">Gambar</label>
                         <div class="col-9">
-                            <input type="file" class="form-control" id="inputGambar" placeholder="Gambar" name="gambar" value="<?= old('gambar', $data['gambar']) ?>">
+                            <input type="file" class="form-control" id="inputGambar" placeholder="Gambar" name="gambar" value="<?= old('gambar', FCPATH."gambar/".$data['gambar']) ?>">
                             <?php if($validation->hasError('gambar')) : ?>
                                 <small><div class="alert alert-danger mt-1" role="alert"><?= $validation->getError('gambar'); ?></div></small>
                             <?php endif; ?>

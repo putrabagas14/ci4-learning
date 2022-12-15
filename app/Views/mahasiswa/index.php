@@ -89,7 +89,7 @@
                             <?php if($item["gambar"] == "" || $item["gambar"] == null) {
                                 $gambar = "/gambar/makima.jpg";
                             } else {
-                                $gambar = $item["gambar"];
+                                $gambar = "/gambar/".$item["gambar"];
                             } ?>
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
