@@ -99,12 +99,12 @@ class Mahasiswa extends BaseController {
 
             $mahasiswa = new MahasiswaModel();
             $mahasiswa->insert([
-            "nama" => $this->request->getVar('nama'),
+            "nama" => htmlspecialchars($this->request->getVar('nama')),
             "gambar" => $nama_gambar,
-            "email" => $this->request->getVar('email'),
-            "alamat" => $this->request->getVar('alamat'),
-            "jurusan" => $this->request->getVar('jurusan'),
-            "nis" => $this->request->getVar('nis'),
+            "email" => htmlspecialchars($this->request->getVar('email')),
+            "alamat" => htmlspecialchars($this->request->getVar('alamat')),
+            "jurusan" => htmlspecialchars($this->request->getVar('jurusan')),
+            "nis" => htmlspecialchars($this->request->getVar('nis')),
             "created_at" => Time::now()
             ]);
 
@@ -183,12 +183,13 @@ class Mahasiswa extends BaseController {
             $data_lama = $mahasiswa->find($id);
 
             $data = [
-                "nama" => $this->request->getVar('nama'),
+                "nama" => htmlspecialchars($this->request->getVar('nama')),
                 "gambar" => $nama_gambar,
-                "email" => $this->request->getVar('email'),
-                "alamat" => $this->request->getVar('alamat'),
-                "jurusan" => $this->request->getVar('jurusan'),
-                "nis" => $this->request->getVar('nis')
+                "email" => htmlspecialchars($this->request->getVar('email')),
+                "alamat" => htmlspecialchars($this->request->getVar('alamat')),
+                "jurusan" => htmlspecialchars($this->request->getVar('jurusan')),
+                "nis" => htmlspecialchars($this->request->getVar('nis')),
+                "updated_at" => Time::now()
             ];
 
             $mahasiswa->update($id, $data);

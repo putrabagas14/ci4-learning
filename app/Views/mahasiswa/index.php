@@ -105,8 +105,10 @@
                                 <td>
                                     <a href="<?= site_url('/mahasiswa/edit/'.$item['id']) ?>"
                                         class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url('/mahasiswa/delete/'.$item['id']) ?>"
-                                        class="btn btn-danger">Delete</a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#deleteMahasiswa">
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -122,6 +124,28 @@
 
     </div>
     <!-- end row -->
+
+    <!-- modal -->
+    <div class="modal fade" id="deleteMahasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Anda yakin ingin menghapus data?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <a href="<?= site_url('/mahasiswa/delete/'.$item['id']) ?>" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div> <!-- end container-fluid -->
 
