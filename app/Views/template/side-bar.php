@@ -26,6 +26,9 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="/mahasiswa">Mahasiswa</a></li>
                     </ul>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="/user">User</a></li>
+                    </ul>
                 </li>
             </ul>
 

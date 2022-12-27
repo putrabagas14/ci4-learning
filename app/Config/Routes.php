@@ -47,6 +47,13 @@ $routes->post('/mahasiswa/update/(:num)', 'Mahasiswa::update/$1');
 // and you should add /$1 or 2 or next number, according to the order of parameters / segment
 $routes->get('/mahasiswa/delete/(:num)', 'Mahasiswa::delete/$1');
 
+$routes->get('/user', 'User::index');
+$routes->get('/user/add', 'User::add');
+$routes->post('/user/save', 'User::save');
+$routes->get('/user/edit/(:num)', 'User::edit/$1');
+$routes->post('/user/update/(:num)', 'User::update/$1');
+$routes->get('/user/delete/(:num)', 'User::delete/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -50,7 +50,7 @@
                     <div class="col-md-9">
                         <form action="" method="get">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Cari Mahasiswa..." name="keyword">
+                                <input type="text" class="form-control" placeholder="Cari User..." name="keyword">
                                 <div class="input-group-append">
                                     <button class="btn btn-info" type="submit" id="button-addon2">Cari</button>
                                 </div>
@@ -58,10 +58,10 @@
                         </form>
                     </div>
                     <div class="col-md-2">
-                        <a href="/mahasiswa" class="btn btn-danger">Clear Filter</a>
+                        <a href="/user" class="btn btn-danger">Clear Filter</a>
                     </div>
                     <div class="col-md-1">
-                        <a href="/mahasiswa/add" class="btn btn-primary">Add</a>
+                        <a href="/user/add" class="btn btn-primary">Add</a>
                     </div>
                 </div>
 
@@ -71,52 +71,38 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Picture</th>
+                                <th>UserName</th>
                                 <th>Email</th>
-                                <th>major</th>
-                                <th>address</th>
-                                <th>NIS</th>
+                                <th>Password</th>
+                                <th>Level</th>
                                 <th>Created At</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1 + (2 * ($current_page - 1)); ?>
-                            <!-- angka 2 adalah jumlah paginate -->
-                            <?php $gambar = ""; ?>
-                            <?php foreach($data as $item) :?>
-                            <?php if($item["gambar"] == "" || $item["gambar"] == null) {
-                                $gambar = "/gambar/makima.jpg";
-                            } else {
-                                $gambar = "/gambar/".$item["gambar"];
-                            } ?>
+                            <?php $no = 1; ?>
+                            <?php $id_delete = 0; ?>
+                            <?php foreach($user as $item) :?>
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
-                                <td><?= $item["nama"]; ?></td>
-                                <td><img src="<?= $gambar ?>" height="100px" width="100px" alt="gambar tidak ditemukan">
-                                </td>
+                                <td><?= $item["username"]; ?></td>
                                 <td><?= $item["email"]; ?></td>
-                                <td><?= $item["jurusan"]; ?></td>
-                                <td><?= $item["alamat"]; ?></td>
-                                <td><?= $item["nis"]; ?></td>
+                                <td><?= $item["password"]; ?></td>
+                                <td><?= $item["level"]; ?></td>
                                 <td><?= $item["created_at"]; ?></td>
                                 <!-- if you use site_url() in tag <a></a>, you should change value $indexPage from 'index.php' to '' in app/Config/App.php -->
                                 <td>
-                                    <a href="<?= site_url('/mahasiswa/edit/'.$item['id']) ?>"
+                                    <a href="<?= site_url('/user/edit/'.$item['id']) ?>"
                                         class="btn btn-info">Edit</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#deleteMahasiswa">
+                                        data-target="#deleteUser">
                                         Delete
                                     </button>
+                                    <?php $id_delete = $item['id']; ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <?= $pager->links('mahasiswa', 'mahasiswa_pagination'); ?>
-                    <!-- 'mahasiswa' adalah nama tabel, 'mahasiswa_pagination' adalah nama yang
-                    sudah kita tambahkan di App\Config/Pager.php -->
                 </div>
             </div>
 
@@ -126,7 +112,7 @@
     <!-- end row -->
 
     <!-- modal -->
-    <div class="modal fade" id="deleteMahasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -141,8 +127,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= site_url('/mahasiswa/delete/'.$item['id']) ?>" class="btn btn-danger">Delete</a>
-                    <!-- site_url diatas memanggil item[id]. jika data kosong akan error -->
+                    <a href="<?= site_url('/user/delete/'.$id_delete) ?>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
