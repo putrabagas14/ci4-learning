@@ -54,6 +54,9 @@ $routes->get('/user/edit/(:num)', 'User::edit/$1');
 $routes->post('/user/update/(:num)', 'User::update/$1');
 $routes->get('/user/delete/(:num)', 'User::delete/$1');
 
+$routes->get("/login", "Auth::login_page");
+$routes->get("/register", "Auth::register_page");
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

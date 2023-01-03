@@ -81,7 +81,11 @@ class User extends BaseController
                 $user->insert([
                     "username" => $username,
                     "email" => $email,
+                    "password" => $password,
+                    "level" => $level
                 ]);
+                session()->setFlashdata("berhasil", "Berhasil menambah data user");
+                return redirect()->to("user");
             }
         }
     }

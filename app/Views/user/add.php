@@ -76,8 +76,8 @@
                                 <option value="dosen">Dosen</option>
                                 <option value="mahasiswa">Mahasiswa</option>
                             </select>
-                            <?php if($validation->hasError('jurusan')) : ?>
-                                <small><div class="alert alert-danger mt-1" role="alert"><?= $validation->getError('jurusan'); ?></div></small>
+                            <?php if($validation->hasError('level')) : ?>
+                                <small><div class="alert alert-danger mt-1" role="alert"><?= $validation->getError('level'); ?></div></small>
                             <?php endif; ?>
                         </div>
                     </div>
